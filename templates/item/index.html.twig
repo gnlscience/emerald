@@ -20,9 +20,9 @@
                     </thead>
                     <tbody>
 
-                    <tr v-for="(item , index) in items" :key="item.id">
+                    <tr v-for="(item , index) in alphabeticItems" :key="item.id">
                         <td>{{ index + 1 }}</td>
-                        <td><input type="text" class="form-control" v-model="item.name" @blur="updateItem(item)"></td>
+                        <td>{{ item.name }}</td>
                         <td><input type="text" class="form-control" v-model="item.quantity" @blur="updateItem(item)"></td>
                         <td class="text-right"><button class="btn btn-sm btn-danger" @click="deleteItem(item)">Delete</button>
                     </tr>
@@ -116,6 +116,13 @@
         },
         mounted () {
           this.fetchItems()
+        },
+        computed:{
+          alphabeticItems(){
+            return this.items.sort(function(a, b) {
+              return (a.name < b.name) ? -1 : (a.name > b.name) ? 1 : 0;
+            })
+          }
         },
         methods: {
           fetchItems(){
