@@ -6,7 +6,7 @@
 4. docker-compose up -d
 5. docker exec -it sf4_php bash
 6. cd sf4
-7. uncomment the docker db config and comment out emerald's config
+7. uncomment the docker db config and comment out emerald's config in .env
 8. composer install
 9. php bin/console doctrine:migrations:migrate
 10. exit docker container
