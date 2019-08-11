@@ -17,12 +17,19 @@
 ## Hopefully the below will work with emerald's enviroment as per test spec
 1. Clone repository
 2. Copy source files to /home/user/Desktop
-3. cd ~/Desktop && php bin/console server:start
-4. Browse localhost/item
-5. Keep fingers crossed
-6. If this fails try the docker installation
+3. php bin/console doctrine:migrations:migrate (will create item table)
+4. cd ~/Desktop && php bin/console server:start
+5. Browse localhost/item
+6. Keep fingers crossed
+7. If this fails try the docker installation
 
+If 3 fails try creating the table in the db with the below sql
 
+CREATE TABLE item (
+    id INT AUTO_INCREMENT NOT NULL, 
+    name VARCHAR(255) NOT NULL, 
+    quantity INT NOT NULL, 
+    PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB')
 
 
 
